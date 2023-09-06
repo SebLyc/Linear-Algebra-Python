@@ -1,0 +1,9 @@
+import numpy as np
+
+N = 3
+C = -2 * np.eye(N) + np.diag(np.ones(N - 1), -1) + np.diag(np.ones(N - 1), 1)
+
+for n_val in range(6):  # od 0 do 5
+    B = np.eye(2**n_val) # kolejne potęgi liczby 2
+    B = np.kron(B, C)
+    print(B)  # Wypisanie macierzy B dla każdej iteracji

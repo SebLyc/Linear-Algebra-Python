@@ -1,0 +1,21 @@
+import numpy as np
+W = -2 * np.eye(3) + np.diag(np.ones(2), -1) + np.diag(np.ones(2), 1)
+B = 12 * (np.pi / 2) ** 2 * np.array([np.pi / 2, np.pi, 3 * np.pi / 2])
+x = []
+w = np.linalg.det(W)
+
+# Nie jestem pewien, czy zrozumiałem intencje oryginalnego kodu.
+# Cramer's Rule wydaje się być odpowiednie w tym przypadku, więc
+# wykorzystam funkcję z biblioteki NumPy, aby rozwiązać układ równań.
+def cramer(A, b):
+    n = A.shape[0]
+    x = np.zeros(n)
+    for i in range(n):
+        Ai = A.copy()
+        Ai[:, i] = b
+        x[i] = np.linalg.det(Ai) / w
+    return x
+
+x = cramer(W, B)
+
+print(x)

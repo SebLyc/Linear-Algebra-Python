@@ -1,0 +1,16 @@
+# Stworzenie tablicy z elementami od 1/1 do 1/10
+numbers = [1 / i for i in range(1, 11)]
+
+# Dodanie liczb w podanej kolejności
+forward_sum = sum(numbers)
+
+# Odwrócenie kolejności tablicy i dodanie liczb w odwrotnej kolejności
+reverse_sum = sum(numbers[::-1])
+
+print("Suma w podanej kolejności:", forward_sum)
+print("Suma w odwrotnej kolejności:", reverse_sum)
+
+if forward_sum == reverse_sum:
+    print("Sumy są równe.")
+else:
+    print("Sumy są różne.")

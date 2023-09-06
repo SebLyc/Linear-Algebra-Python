@@ -1,0 +1,35 @@
+import numpy as np
+import time
+
+n_values = [10, 50, 100, 200, 500, 1000]
+
+def generate_W_B(n):
+    W = -2 * np.eye(n) + np.diag(np.ones(n-1), -1) + np.diag(np.ones(n-1), 1)
+    B = 12 * (np.pi / 2) ** 2 * np.linspace(np.pi / 2, 3 * np.pi / 2, n)
+    return W, B
+
+def cramer(A, b):
+    n = A.shape[0]
+    x = np.zeros(n)
+    for i in range(n):
+        Ai = A.copy()
+        Ai[:, i] = b
+        x[i] = np.linalg.det(Ai) / np.linalg.det(A)
+    return x
+
+for n in n_values:
+    print(f"\n--- n = {n} ---")
+    W, B = generate_W_B(n)
+
+    start_time = time.time()
+    x = cramer(W, B)
+    end_time = time.time()
+
+    print("Solution:", x)
+    print(f"Time taken: {end_time - start_time:.6f} seconds")
+
+#Time taken: 139.241601 seconds
+#Time taken: 20.897691 seconds
+#Time taken: 2.220349 seconds
+#Time taken: 0.929502 seconds
+#Time taken: 0.012984 seconds

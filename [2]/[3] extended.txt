@@ -1,0 +1,17 @@
+import matplotlib.pyplot as plt
+
+# Dane
+values = [10, 50, 100, 200, 500, 1000]
+times = [0.012984, 0.929502, 2.220349, 20.897691, 139.241601]
+
+# Rysowanie wykresu
+plt.plot(values[:len(times)], times, marker='o', linestyle='-', color='b')
+
+# Dodawanie etykiet i tytułu
+plt.xlabel('Wartości')
+plt.ylabel('Czas [seconds]')
+plt.title('Czas wykonania w zależności od wartości')
+
+# Pokaż wykres
+plt.grid(True)
+plt.show()

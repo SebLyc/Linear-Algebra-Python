@@ -1,0 +1,14 @@
+import math
+
+def f(x):
+    return math.sqrt(x**2 + 1) - 1
+
+def g(x):
+    return x**2 / (math.sqrt(x**2 + 1) + 1)
+
+# Obliczanie i wyświetlanie wartości funkcji f(x) i g(x) dla podanych wartości x
+for i in range(1, 13):
+    x = 8**(-i)
+    f_x = f(x)
+    g_x = g(x)
+    print(f"dla x = 8^(-{i}): f(x) = {f_x}, g(x) = {g_x}, różnica jest równa ",f_x-g_x)

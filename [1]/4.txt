@@ -1,0 +1,29 @@
+import numpy as np
+
+x = np.array([10**20, 1223, 10**18, 10**15, 3, -10**12])
+y = np.array([10**20, 2, -10**22, 10**13, 2111, 10**16])
+
+dot_product = np.dot(x, y)
+
+print("Wartość iloczynu skalarnego wektorów x i y wynosi:", dot_product)
+
+
+
+# BEZ NUMPY
+
+x = [10**20, 1223, 10**18, 10**15, 3, -10**12]
+y = [10**20, 2, -10**22, 10**13, 2111, 10**16]
+
+def dot_product(vector1, vector2):
+    if len(vector1) != len(vector2):
+        raise ValueError("Wektory muszą mieć taką samą długość.")
+
+    result = 0
+    for i in range(len(vector1)):
+        result += vector1[i] * vector2[i]
+
+    return result
+
+dot_product_result = dot_product(x, y)
+
+print("Wartość iloczynu skalarnego wektorów x i y wynosi:", dot_product_result)
